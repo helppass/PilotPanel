@@ -1,0 +1,40 @@
+<style>
+    .p-root {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+</style>
+<div class="p-root flex-pv">
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box title="F 1"></btn-box>
+        <btn-box title="F 2"></btn-box>
+        <btn-box title="F 3"></btn-box>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box title="F 1"></btn-box>
+        <btn-box title="F 2"></btn-box>
+        <btn-box title="F 3"></btn-box>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box btn="com1Pwd"></btn-box>
+        <span class="btn-freq" ng-click="freqClick(com1Freq)">
+            {{com1Freq.value}}
+        </span>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box btn="com2Pwd"></btn-box>
+        <span class="btn-freq" ng-click="freqClick(com1Freq)">
+            {{com2Freq.value}}
+        </span>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+</div>

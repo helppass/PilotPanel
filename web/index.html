@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="">
+    <title>Pilot-Panel</title>
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css"> -->
+    <link href="main.css" rel="stylesheet">
+
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/stateEvents.min.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="index.js"></script>
+    <!-- <script src="btn.js"></script> -->
+    <script src="about.js"></script>
+
+    <script src="xp-commons.js"></script>
+    <script src="xp-test.js"></script>
+    <script src="xp-datas.js"></script>
+    <script src="xp-autopilot.js"></script>
+    <script src="xp-radio.js"></script>
+    <script src="xp-cdu.js"></script>
+
+    <script src="dcs-commons.js"></script>    
+    <script src="dcs-test.js"></script>
+    <script src="dcs-f18-ufc.js"></script>
+    <script src="dcs-jf17-ufc.js"></script>
+</head>
+
+<!-- <body ui-view class="flex-pv">
+</body> -->
+
+<body ui-view class="Xflex-pv" ng-app="app" ng-on-touchstart="onTouchstart($event)"
+    ng-on-touchmove="onTouchmove($event)" ng-on-touchend="onTouchend($event)">
+    <!-- <ui-view class="flex-pv panel" ng-on-mousemove="onTouchstart($event)"></ui-view> -->
+</body>
+
+</html>

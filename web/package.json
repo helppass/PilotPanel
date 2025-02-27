@@ -1,0 +1,17 @@
+{
+  "name": "pilot-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.3",
+    "angular-ui-router": "^1.0.30",
+    "jquery": "^3.7.1",
+    "moment": "^2.30.1"
+  }
+}

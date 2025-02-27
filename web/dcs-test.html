@@ -1,0 +1,45 @@
+<style>
+    .p-root {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+</style>
+<div class="p-root flex-pv">
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box btn="btnNum1" ng-on-touchstart="onClickDown(btnNum1, 1, $event)"
+            ng-on-touchend="onClickDown(btnNum1, 0, $event)"></btn-box>
+        <btn-box btn="btnNum2" ng-on-touchstart="onClickDown(btnNum2, 1, $event)"
+            ng-on-touchend="onClickDown(btnNum2, 0, $event)"></btn-box>
+        <btn-box btn="btnNum3" ng-on-touchstart="onClickDown(btnNum3, 1, $event)"
+            ng-on-touchend="onClickDown(btnNum3, 0, $event)"></btn-box>
+        <btn-box btn="btnNum4" ng-on-touchstart="onClickDown(btnNum4, 1, $event)"
+            ng-on-touchend="onClickDown(btnNum4, 0, $event)"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box title="F 1"></btn-box>
+        <btn-box title="F 2"></btn-box>
+        <btn-box title="F 3"></btn-box>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box btn="com1Pwd"></btn-box>
+        <span class="btn-freq" ng-click="freqClick(com1Freq)">
+            {{com1Freq.value}}
+        </span>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    <div class="sep-line"></div>
+    <div class="flex-ph btn-line">
+        <btn-box btn="com2Pwd"></btn-box>
+        <span class="btn-freq" ng-click="freqClick(com1Freq)">
+            {{com2Freq.value}}
+        </span>
+        <btn-box title="F 4"></btn-box>
+    </div>
+    {{aircraft}}
+    <div class="sep-line"></div>
+</div>

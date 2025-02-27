@@ -1,0 +1,627 @@
+{
+    "width": 461,
+    "height": 721,
+    "buttons": [
+        {
+            "code": "l1",
+            "height": 23,
+            "id": 1000,
+            "left": 11,
+            "command": "sim/FMS/ls_1l",
+            "top": 96.0,
+            "width": 31
+        },
+        {
+            "code": "l2",
+            "height": 23,
+            "id": 1001,
+            "left": 11,
+            "command": "sim/FMS/ls_2l",
+            "top": 136.4,
+            "width": 31
+        },
+        {
+            "code": "l3",
+            "height": 23,
+            "id": 1002,
+            "left": 11,
+            "command": "sim/FMS/ls_3l",
+            "top": 176.8,
+            "width": 31
+        },
+        {
+            "code": "l4",
+            "height": 23,
+            "id": 1003,
+            "left": 11,
+            "command": "sim/FMS/ls_4l",
+            "top": 217.2,
+            "width": 31
+        },
+        {
+            "code": "l5",
+            "height": 23,
+            "id": 1004,
+            "left": 11,
+            "command": "sim/FMS/ls_5l",
+            "top": 257.6,
+            "width": 31
+        },
+        {
+            "code": "l6",
+            "height": 23,
+            "id": 1005,
+            "left": 11,
+            "command": "sim/FMS/ls_6l",
+            "top": 298.0,
+            "width": 31
+        },
+        {
+            "code": "r1",
+            "height": 23,
+            "id": 1006,
+            "left": 418,
+            "command": "sim/FMS/ls_1r",
+            "top": 96.0,
+            "width": 31
+        },
+        {
+            "code": "r2",
+            "height": 23,
+            "id": 1007,
+            "left": 418,
+            "command": "sim/FMS/ls_2r",
+            "top": 136.4,
+            "width": 31
+        },
+        {
+            "code": "r3",
+            "height": 23,
+            "id": 1008,
+            "left": 418,
+            "command": "sim/FMS/ls_3r",
+            "top": 176.8,
+            "width": 31
+        },
+        {
+            "code": "r4",
+            "height": 23,
+            "id": 1009,
+            "left": 418,
+            "command": "sim/FMS/ls_4r",
+            "top": 217.2,
+            "width": 31
+        },
+        {
+            "code": "r5",
+            "height": 23,
+            "id": 1010,
+            "left": 418,
+            "command": "sim/FMS/ls_5r",
+            "top": 257.6,
+            "width": 31
+        },
+        {
+            "code": "r6",
+            "height": 23,
+            "id": 1011,
+            "left": 418,
+            "command": "sim/FMS/ls_6r",
+            "top": 298.0,
+            "width": 31
+        },
+        {
+            "code": "m11",
+            "height": 34,
+            "id": 2000,
+            "left": 51.0,
+            "command": "sim/FMS/dir_intc",
+            "top": 363.0,
+            "width": 49
+        },
+        {
+            "code": "m12",
+            "height": 34,
+            "id": 2001,
+            "left": 106.8,
+            "command": "sim/FMS/prog",
+            "top": 363.0,
+            "width": 49
+        },
+        {
+            "code": "m13",
+            "height": 34,
+            "id": 2002,
+            "left": 162.6,
+            "command": "sim/FMS/perf",
+            "top": 363.0,
+            "width": 49
+        },
+        {
+            "code": "m14",
+            "height": 34,
+            "id": 2003,
+            "left": 218.4,
+            "command": "sim/FMS/index",
+            "top": 363.0,
+            "width": 49
+        },
+        {
+            "code": "m15",
+            "height": 34,
+            "id": 2004,
+            "left": 274.2,
+            "command": "sim/FMS/data",
+            "top": 363.0,
+            "width": 49
+        },
+        {
+            "code": "m21",
+            "height": 34,
+            "id": 2005,
+            "left": 51.0,
+            "command": "sim/FMS/fpln",
+            "top": 401.0,
+            "width": 49
+        },
+        {
+            "code": "m22",
+            "height": 34,
+            "id": 2006,
+            "left": 106.8,
+            "command": "sim/FMS/navrad",
+            "top": 401.0,
+            "width": 49
+        },
+        {
+            "code": "m23",
+            "height": 34,
+            "id": 2007,
+            "left": 162.6,
+            "command": "sim/FMS/fuel_pred",
+            "top": 401.0,
+            "width": 49
+        },
+        {
+            "code": "m26",
+            "height": 34,
+            "id": 2008,
+            "left": 330.0,
+            "command": "sim/FMS/menu",
+            "top": 401.0,
+            "width": 49
+        },
+        {
+            "code": "m31",
+            "height": 34,
+            "id": 2009,
+            "left": 51.0,
+            "command": "sim/FMS/airport",
+            "top": 439.0,
+            "width": 49
+        },
+        {
+            "code": "m41",
+            "height": 34,
+            "id": 2010,
+            "left": 51.0,
+            "command": "sim/FMS/prev",
+            "top": 477.0,
+            "width": 49
+        },
+        {
+            "code": "m42",
+            "height": 34,
+            "id": 2011,
+            "left": 106.8,
+            "command": "sim/FMS/up",
+            "top": 477.0,
+            "width": 49
+        },
+        {
+            "code": "m51",
+            "height": 34,
+            "id": 2012,
+            "left": 51.0,
+            "command": "sim/FMS/next",
+            "top": 515.0,
+            "width": 49
+        },
+        {
+            "code": "m52",
+            "height": 34,
+            "id": 2013,
+            "left": 106.8,
+            "command": "sim/FMS/down",
+            "top": 515.0,
+            "width": 49
+        },
+        {
+            "code": "n1",
+            "height": 32,
+            "id": 3000,
+            "left": 52.0,
+            "command": "sim/FMS/key_1",
+            "top": 556.0,
+            "width": 32
+        },
+        {
+            "code": "n2",
+            "height": 32,
+            "id": 3001,
+            "left": 96.0,
+            "command": "sim/FMS/key_2",
+            "top": 556.0,
+            "width": 32
+        },
+        {
+            "code": "n3",
+            "height": 32,
+            "id": 3002,
+            "left": 140.0,
+            "command": "sim/FMS/key_3",
+            "top": 556.0,
+            "width": 32
+        },
+        {
+            "code": "n4",
+            "height": 32,
+            "id": 3003,
+            "left": 52.0,
+            "command": "sim/FMS/key_4",
+            "top": 593.0,
+            "width": 32
+        },
+        {
+            "code": "n5",
+            "height": 32,
+            "id": 3004,
+            "left": 96.0,
+            "command": "sim/FMS/key_5",
+            "top": 593.0,
+            "width": 32
+        },
+        {
+            "code": "n6",
+            "height": 32,
+            "id": 3005,
+            "left": 140.0,
+            "command": "sim/FMS/key_6",
+            "top": 593.0,
+            "width": 32
+        },
+        {
+            "code": "n7",
+            "height": 32,
+            "id": 3006,
+            "left": 52.0,
+            "command": "sim/FMS/key_7",
+            "top": 630.0,
+            "width": 32
+        },
+        {
+            "code": "n8",
+            "height": 32,
+            "id": 3007,
+            "left": 96.0,
+            "command": "sim/FMS/key_8",
+            "top": 630.0,
+            "width": 32
+        },
+        {
+            "code": "n9",
+            "height": 32,
+            "id": 3008,
+            "left": 140.0,
+            "command": "sim/FMS/key_9",
+            "top": 630.0,
+            "width": 32
+        },
+        {
+            "code": "n10",
+            "height": 32,
+            "id": 3009,
+            "left": 52.0,
+            "command": "sim/FMS/key_period",
+            "top": 667.0,
+            "width": 32
+        },
+        {
+            "code": "n11",
+            "height": 32,
+            "id": 3010,
+            "left": 96.0,
+            "command": "sim/FMS/key_0",
+            "top": 667.0,
+            "width": 32
+        },
+        {
+            "code": "n12",
+            "height": 32,
+            "id": 3011,
+            "left": 140.0,
+            "command": "sim/FMS/key_minus",
+            "top": 667.0,
+            "width": 32
+        },
+        {
+            "code": "cc1",
+            "height": 35,
+            "id": 4000,
+            "left": 185.0,
+            "command": "sim/FMS/key_A",
+            "top": 450.0,
+            "width": 35
+        },
+        {
+            "code": "cc2",
+            "height": 35,
+            "id": 4001,
+            "left": 232.5,
+            "command": "sim/FMS/key_B",
+            "top": 450.0,
+            "width": 35
+        },
+        {
+            "code": "cc3",
+            "height": 35,
+            "id": 4002,
+            "left": 280.0,
+            "command": "sim/FMS/key_C",
+            "top": 450.0,
+            "width": 35
+        },
+        {
+            "code": "cc4",
+            "height": 35,
+            "id": 4003,
+            "left": 327.5,
+            "command": "sim/FMS/key_D",
+            "top": 450.0,
+            "width": 35
+        },
+        {
+            "code": "cc5",
+            "height": 35,
+            "id": 4004,
+            "left": 375.0,
+            "command": "sim/FMS/key_E",
+            "top": 450.0,
+            "width": 35
+        },
+        {
+            "code": "cc6",
+            "height": 35,
+            "id": 4005,
+            "left": 185.0,
+            "command": "sim/FMS/key_F",
+            "top": 493.0,
+            "width": 35
+        },
+        {
+            "code": "cc7",
+            "height": 35,
+            "id": 4006,
+            "left": 232.5,
+            "command": "sim/FMS/key_G",
+            "top": 493.0,
+            "width": 35
+        },
+        {
+            "code": "cc8",
+            "height": 35,
+            "id": 4007,
+            "left": 280.0,
+            "command": "sim/FMS/key_H",
+            "top": 493.0,
+            "width": 35
+        },
+        {
+            "code": "cc9",
+            "height": 35,
+            "id": 4008,
+            "left": 327.5,
+            "command": "sim/FMS/key_I",
+            "top": 493.0,
+            "width": 35
+        },
+        {
+            "code": "cc10",
+            "height": 35,
+            "id": 4009,
+            "left": 375.0,
+            "command": "sim/FMS/key_J",
+            "top": 493.0,
+            "width": 35
+        },
+        {
+            "code": "cc11",
+            "height": 35,
+            "id": 4010,
+            "left": 185.0,
+            "command": "sim/FMS/key_K",
+            "top": 536.0,
+            "width": 35
+        },
+        {
+            "code": "cc12",
+            "height": 35,
+            "id": 4011,
+            "left": 232.5,
+            "command": "sim/FMS/key_L",
+            "top": 536.0,
+            "width": 35
+        },
+        {
+            "code": "cc13",
+            "height": 35,
+            "id": 4012,
+            "left": 280.0,
+            "command": "sim/FMS/key_M",
+            "top": 536.0,
+            "width": 35
+        },
+        {
+            "code": "cc14",
+            "height": 35,
+            "id": 4013,
+            "left": 327.5,
+            "command": "sim/FMS/key_N",
+            "top": 536.0,
+            "width": 35
+        },
+        {
+            "code": "cc15",
+            "height": 35,
+            "id": 4014,
+            "left": 375.0,
+            "command": "sim/FMS/key_O",
+            "top": 536.0,
+            "width": 35
+        },
+        {
+            "code": "cc16",
+            "height": 35,
+            "id": 4015,
+            "left": 185.0,
+            "command": "sim/FMS/key_P",
+            "top": 579.0,
+            "width": 35
+        },
+        {
+            "code": "cc17",
+            "height": 35,
+            "id": 4016,
+            "left": 232.5,
+            "command": "sim/FMS/key_Q",
+            "top": 579.0,
+            "width": 35
+        },
+        {
+            "code": "cc18",
+            "height": 35,
+            "id": 4017,
+            "left": 280.0,
+            "command": "sim/FMS/key_R",
+            "top": 579.0,
+            "width": 35
+        },
+        {
+            "code": "cc19",
+            "height": 35,
+            "id": 4018,
+            "left": 327.5,
+            "command": "sim/FMS/key_S",
+            "top": 579.0,
+            "width": 35
+        },
+        {
+            "code": "cc20",
+            "height": 35,
+            "id": 4019,
+            "left": 375.0,
+            "command": "sim/FMS/key_T",
+            "top": 579.0,
+            "width": 35
+        },
+        {
+            "code": "cc21",
+            "height": 35,
+            "id": 4020,
+            "left": 185.0,
+            "command": "sim/FMS/key_U",
+            "top": 622.0,
+            "width": 35
+        },
+        {
+            "code": "cc22",
+            "height": 35,
+            "id": 4021,
+            "left": 232.5,
+            "command": "sim/FMS/key_V",
+            "top": 622.0,
+            "width": 35
+        },
+        {
+            "code": "cc23",
+            "height": 35,
+            "id": 4022,
+            "left": 280.0,
+            "command": "sim/FMS/key_W",
+            "top": 622.0,
+            "width": 35
+        },
+        {
+            "code": "cc24",
+            "height": 35,
+            "id": 4023,
+            "left": 327.5,
+            "command": "sim/FMS/key_X",
+            "top": 622.0,
+            "width": 35
+        },
+        {
+            "code": "cc25",
+            "height": 35,
+            "id": 4024,
+            "left": 375.0,
+            "command": "sim/FMS/key_Y",
+            "top": 622.0,
+            "width": 35
+        },
+        {
+            "code": "cc26",
+            "height": 35,
+            "id": 4025,
+            "left": 185.0,
+            "command": "sim/FMS/key_Z",
+            "top": 665.0,
+            "width": 35
+        },
+        {
+            "code": "cc27",
+            "height": 35,
+            "id": 4026,
+            "left": 232.5,
+            "command": "sim/FMS/key_slash",
+            "top": 665.0,
+            "width": 35
+        },
+        {
+            "code": "cc28",
+            "height": 35,
+            "id": 4027,
+            "left": 280.0,
+            "command": "sim/FMS/key_space",
+            "top": 665.0,
+            "width": 35
+        },
+        {
+            "code": "cc29",
+            "height": 35,
+            "id": 4028,
+            "left": 327.5,
+            "command": "sim/FMS/key_overfly",
+            "top": 665.0,
+            "width": 35
+        },
+        {
+            "code": "cc30",
+            "height": 35,
+            "id": 4029,
+            "left": 375.0,
+            "command": "sim/FMS/key_clear",
+            "top": 665.0,
+            "width": 35
+        }
+    ],
+    "lineCfg": {
+        "dx": 13,
+        "dy": 20.3,
+        "height": 300,
+        "id": 1,
+        "left": 75,
+        "top": 57,
+        "width": 315
+    }
+}

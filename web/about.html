@@ -1,0 +1,67 @@
+<style>
+    body {
+        background-color: white;
+    }
+
+    h3 {
+        margin: 0;
+        padding: 5px;
+    }
+
+    .p-line {
+        padding: 2px 10px;
+        height: 30px;
+        align-items: center;
+    }
+
+    .p-enable {
+        background-color: rgb(214, 214, 214);
+        border-radius: 24px;
+        width: 40px;
+        height: 26px;
+        position: relative;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .p-enable-1::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: rgb(0, 183, 0);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(18%);
+        transition: transform 0.05s;
+    }
+
+    .p-enable-0::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: rgb(183, 0, 0);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(84%);
+        transition: transform 0.05s;
+    }
+</style>
+<h3>Setting</h3>
+<div class="flex-pv">
+    <div ng-repeat="panel in panels" class="flex-ph p-line">
+        <div class="p-enable" ng-class="panel.enabled==1?'p-enable p-enable-1':'p-enable p-enable-0'"
+            ng-click="setPanelEnabled(panel)"> </div>
+        <div class="p-title">
+            <a ui-sref="{{panel.name}}" ui-sref-active="active"
+                ui-sref-opts="{ reload: true, location: true }">{{panel.title}}</a>
+        </div>
+    </div>
+    <!-- <div>
+        <button id="xxx">KKK</button>
+        {{test01}}, {{bbb}}
+    </div> -->
+</div>

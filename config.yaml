@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+port: 5600
+xplane:
+  host: 127.0.0.1
+  port: 8086
+dcs:
+  host: 127.0.0.1
+  port: 7778

@@ -1,0 +1,43 @@
+<style>
+    .p-root {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .btn {
+        position: absolute;
+        cursor: pointer;
+        /* background-color: rgba(0, 255, 242, 0.005); */
+    }
+
+    .light {
+        position: absolute;
+    }
+
+    .light.light-on {
+        background-color: cyan;
+        box-shadow: 0px 0px 5px 2px cyan;
+    }
+
+    .light.light-off {
+        background-color: black;
+    }
+
+    .char {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+</style>
+<div class="p-root flex-pv">
+    <span class="char" ng-repeat="c in chars" ng-style="c.style">{{c.v}}</span>
+    <div class="btn" ng-repeat="btn in buttons" ng-style="btn.style" ng-on-touchstart="onClickDown(btn, 1, $event)"
+        ng-on-touchend="onClickDown(btn, 0, $event)"></div>
+    <div class="light" ng-if="light!=null" ng-style="light.style" ng-class="light.status==1?'light-on':'light-off'">
+    </div>
+</div>

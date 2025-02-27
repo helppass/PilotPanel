@@ -1,0 +1,10 @@
+__pycache__/
+web/node_modules/
+web/package-lock.json
+.vscode/
+dist/
+build/
+*.pyc
+*.pyo
+*.exe
+*.spec

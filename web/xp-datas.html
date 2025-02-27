@@ -1,0 +1,50 @@
+<style>
+    .p-root {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .datas {
+        overflow: auto;
+    }
+
+    .btns {
+        height: 50px;
+        background-color: #f0f0f0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .data-key {
+        padding: 1px;
+        border-top: 1px darkgray solid;
+    }
+
+    .data-value {
+        padding: 1px;
+        padding-left: 20px;
+        word-wrap: break-word;
+    }
+</style>
+<div class="p-root flex-pv">
+    <div class="flex-pv datas flex-ca">
+        <div class="flex-pv" ng-repeat="node in dataList " ng-on-touchstart="onTouchstart($event)"
+            ng-on-touchmove="onTouchmove($event)" ng-on-touchend="onTouchend($event)" ng-click="clickData(node)">
+            <div class="data-key">
+                <span>{{node.key}}</span>
+            </div>
+            <div class="data-value">
+                <span>{{node.value}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="flex-ph btns flex-cn">
+        <div class="button">
+            <button ng-click="pauseSort(1)">Pause</button>
+            <button ng-click="pauseSort(0)">Resume</button>
+            <button ng-click="setSortBy(1)">ByTime</button>
+            <button ng-click="setSortBy(2)">ByName</button>
+        </div>
+    </div>
+</div>
