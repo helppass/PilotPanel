@@ -21,7 +21,7 @@
 
 ### 安装步骤
 
-* 下载已打包的程序：链接: <https://pan.baidu.com/s/1MTihKU2PztduJGO1Y9d2Ag?pwd=c97g>
+* 下载已打包的程序：链接: <https://pan.baidu.com/s/1Oo59wqqV_ib9kYb0-VBtyw?pwd=itry>
 * 解压缩到后，即可执行
 * 程序默认服务端口为5600，如需变更则可以在config.ymal中修改
 
@@ -33,6 +33,8 @@
 * 用微信浏览器访问 http\://电脑IP:5600。因手机浏览器可能有些奇怪的安全限制，例如禁止JavaScript、禁止websocket等，导致无法正常使用，所以建议使用微信内的浏览器，其他浏览器也可以试一下。
 * 打开后看到的是设置界面，按照需要打开或关闭面板。
 * 在空白处上滑或下滑切换界面。
+
+PS：如果有Python开发环境则可执行main.py启动
 
 #### Setting
 
@@ -85,3 +87,5 @@
 * X-Plane 版本清单：<https://www.x-plane.com/knowledgebase_category/release-notes/>
 
 ## 常见问题解答（FAQ）
+
+
