@@ -45,6 +45,7 @@ PS：如果有Python开发环境则可执行main.py启动
 #### X-Plane CDU
 
 目前仅支持X-Plane 12的原生737、A330和MD-82。CDU界面会依据当前飞机自动切换。
+
 ![输入图片说明](resource/xp-cud-737.png)
 ![输入图片说明](resource/xp-cud-330.png)
 
