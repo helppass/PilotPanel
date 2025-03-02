@@ -21,7 +21,7 @@
 
 ### 安装步骤
 
-* 下载已打包的程序：链接: <https://pan.baidu.com/s/1Oo59wqqV_ib9kYb0-VBtyw?pwd=itry>
+* 下载已打包的程序：链接: <https://pan.baidu.com/s/1nwXDYXzTOt8eXzxktMEN_g?pwd=vkur>
 * 解压缩到后，即可执行
 * 程序默认服务端口为5600，如需变更则可以在config.ymal中修改
 
@@ -90,3 +90,6 @@ PS：如果有Python开发环境则可执行main.py启动
 ## 常见问题解答（FAQ）
 
 
+## 更新历史
+
+* 2025-03-02 11:00 重新打包，之前的web/node_modules目录内容异常 <https://pan.baidu.com/s/1nwXDYXzTOt8eXzxktMEN_g?pwd=vkur>
