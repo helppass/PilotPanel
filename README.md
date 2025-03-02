@@ -17,7 +17,8 @@
 
 ### 环境要求
 
-执行环境Windows
+* 执行环境Windows
+* DCS World需要安装DCS-BIOS插件，具体安装方法可参考DCS-BIOS项目主页。
 
 ### 安装步骤
 
@@ -89,7 +90,7 @@ PS：如果有Python开发环境则可执行main.py启动
 
 ## 常见问题解答（FAQ）
 
-
 ## 更新历史
 
 * 2025-03-02 11:00 重新打包，之前的web/node_modules目录内容异常 <https://pan.baidu.com/s/1nwXDYXzTOt8eXzxktMEN_g?pwd=vkur>
+* 2023-03-03 11:00 XPlane相关面板的Flex布局改为grid布局，频率数值字体改为点整字体

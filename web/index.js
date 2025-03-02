@@ -1,5 +1,83 @@
 var app = angular.module('app', ['ui.router']);
 
+app.directive('gBtn', function () {
+    return {
+        scope: {
+            title: "@title",
+            title2: "@title2",
+            hasLight: "@hasLight",
+            lightOn: "=lightOn",
+        },
+        restrict: 'E',
+        // transclude: true,
+        controller: 'gBtn' + 'Controller',
+        templateUrl: 'g-btn.html',
+        link: function (scope, element, attrs, controllers) {
+            // element.on('touchstart', (e) => { e.preventDefault(); e.stopPropagation(); });
+            // element.on('touchend', (e) => { e.preventDefault(); e.stopPropagation(); });
+        }
+    };
+});
+
+app.controller('gBtn' + 'Controller',
+    ['$scope', '$rootScope', '$state', '$stateParams', '$element', '$attrs',
+        function ($scope, $rootScope, $state, $stateParams, $element, $attrs) {
+            // $scope.lightOn2 = function () {
+                // console.log($scope.lightOn);
+                // return $scope.lightOn;
+            // }
+        }
+    ]
+);
+
+app.directive('gLed', function () {
+    return {
+        scope: {
+            text: "=text",
+        },
+        restrict: 'E',
+        // transclude: true,
+        controller: 'gLed' + 'Controller',
+        templateUrl: 'g-led.html',
+        link: function (scope, element, attrs, controllers) {
+            // if (attrs.lightOn == "true") {
+            //     scope.lightOn = true;
+            // }
+        }
+    };
+});
+
+app.controller('gLed' + 'Controller',
+    ['$scope', '$rootScope', '$state', '$stateParams', '$element', '$attrs',
+        function ($scope, $rootScope, $state, $stateParams, $element, $attrs) {
+            $scope.$watch("text", function (newValue, oldValue) {
+                if (newValue == null)
+                    $scope.chars = [];
+                else
+                    $scope.chars = newValue.split("");
+            });
+
+            $scope.getCharStyle = function (c) {
+                // background-position: calc(2px - var(--s)* 4) calc(1px - var(--s)* 0);
+                let style = {};
+                const cs = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*+-\\/()[]{}<>=?^!#%^&°.:,|_'\"";
+                let idx = cs.indexOf(c);
+                let x = 0;
+                let y = 0;
+                if (idx >= 0) {
+                    x = idx % 8;
+                    y = Math.floor(idx / 8);
+                } else {
+                    console.log("unknown char", c);
+                    return style;
+                }
+                style['background-position'] = "calc(-1px - var(--s)* " + x + ") calc(1px - var(--s)* " + y + ")";
+                return style;
+            };
+        }
+    ]
+);
+
 app.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
 
     $urlRouterProvider
@@ -70,11 +148,11 @@ app.controller('panelsController',
                 //     title: 'Xplane12-Datas',
                 //     enabled: 1
                 // },
-                // {
-                //     name: 'panels.xp.test',
-                //     title: 'Xplane12-Test',
-                //     enabled: 1
-                // },
+                {
+                    name: 'panels.xp.test',
+                    title: 'Xplane12-Test',
+                    enabled: 1
+                },
             ]
             // 
             for (let i = 0; i < $scope.panels.length; i++) {
@@ -113,7 +191,7 @@ app.controller('panelsController',
                 }
             }
             // 
-            threshold = 50;
+            threshold = 100;
             $scope.onTouchstart = function (e) {
                 $scope.touchStart = e.touches[0].clientY;
                 $scope.touchDist = 0;

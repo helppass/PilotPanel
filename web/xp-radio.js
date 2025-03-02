@@ -15,70 +15,7 @@ app.controller("xpRadio" + "Controller", [
     "$timeout",
     "$interval",
     function ($scope, $rootScope, $state, $stateParams, $timeout, $interval) {
-        $scope.inputText = "";
 
-        $scope.com1Pwd = {
-            title: "COM1",
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.05,
-        };
-        $scope.com1Apply = {
-            title: '<<<',
-            command: 'sim/radios/com1_standy_flip',
-            duration: 0.1,
-        };
-        $scope.com2Pwd = {
-            title: "COM2",
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.1,
-        };
-        $scope.com2Apply = {
-            title: '<<<',
-            command: 'sim/radios/com2_standy_flip',
-            duration: 0.1,
-        }
-        $scope.nav1Pwd = {
-            title: 'NAV1',
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.1,
-        };
-        $scope.nav1Apply = {
-            title: '<<<',
-            command: 'sim/radios/nav1_standy_flip',
-            duration: 0.1,
-        }
-        $scope.nav2Pwd = {
-            title: 'NAV2',
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.1,
-        };
-        $scope.nav2Apply = {
-            title: '<<<',
-            command: 'sim/radios/nav2_standy_flip',
-            duration: 0.1,
-        }
-        $scope.adf1Pwd = {
-            title: 'ADF1',
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.1,
-        };
-        $scope.adf2Pwd = {
-            title: 'ADF2',
-            // hasLight: true,
-            // lightOn: true,
-            // command: 'laminar/B738/rtp_L/freq_txfr/sel_switch',
-            // duration: 0.1,
-        };
         // 
         $scope.com1Freq = {
             key: 'sim/cockpit2/radios/actuators/com1_frequency_hz_833',
@@ -131,16 +68,30 @@ app.controller("xpRadio" + "Controller", [
             bits: 0
         };
 
+
+        $scope.com1Apply = {
+            command: 'sim/radios/com1_standy_flip',
+            duration: 0.1,
+        };
+        $scope.com2Apply = {
+            command: 'sim/radios/com2_standy_flip',
+            duration: 0.1,
+        }
+        $scope.nav1Apply = {
+            command: 'sim/radios/nav1_standy_flip',
+            duration: 0.1,
+        }
+        $scope.nav2Apply = {
+            command: 'sim/radios/nav2_standy_flip',
+            duration: 0.1,
+        }
+
         $scope.initPanel = function (aircraft) {
+            console.log("initPanel test", aircraft);
+            // 
             if (aircraft == null)
                 return;
-            // 
-            if (aircraft == "Boeing 737-800") {
-                $scope.com1Apply.command = 'laminar/B738/rtp_L/freq_txfr/sel_switch';
-            } else {
-                $scope.com1Apply.command = 'sim/radios/com1_standy_flip';
-            }
-            // 
+
             freqs = [
                 $scope.com1Freq,
                 $scope.com1StandbyFreq,
@@ -154,42 +105,72 @@ app.controller("xpRadio" + "Controller", [
                 $scope.adf2Freq,
             ];
 
+            // 挨个发起注册
             freqs.forEach(freq => {
                 $scope.watchDataref(freq.key, $scope.onFreqChanged, freq);
             });
         };
 
-        $scope.$watch("aircraft", $scope.initPanel);
-
         $scope.onFreqChanged = function (key, newValue, oldValue, freq) {
-            if (freq == null)
+            if (newValue == null)
                 return;
-            console.log("onFreqChanged changed: ", key, newValue, oldValue, freq);
-            if (newValue == null) {
-                freq.value = null;
-                return;
-            }
-            // 
-            if (freq.bits == null) {
-                freq.value = newValue;
-                return;
-            }
-            // 
             v = Number(newValue);
             v = v / Math.pow(10, freq.bits);
-            v = v.toFixed(freq.bits);
+            t = v.toFixed(freq.bits);
+            t = t.padStart(7, " ");
             freq.value = v;
+            freq.text = t
+            console.log("onFreqChanged changed: ", key, newValue, oldValue, freq);
         };
 
-        $scope.freqClick = function (freq) {
-            if (freq == null)
+        $scope.inputText = "";
+
+        $scope.numClick = function (s) {
+            if ('vibrate' in navigator)
+                navigator.vibrate(50);
+
+            s = String(s)
+            if (s == "CLR") {
+                $scope.inputText = "";
                 return;
-            if ($scope.inputText.length == 0) {
-                $scope.inputText = freq.value;
+            }
+            let text = $scope.inputText.trim();
+            if (s == "DEL") {
+                text = $scope.inputText.substr(0, $scope.inputText.length - 1);
+            } else if (s == "CLR") {
+                text = "";
+            } else if (s === '.') {
+                if (text.indexOf('.') === -1) {
+                    if (text.length == 0) {
+                        text = "0.";
+                    } else {
+                        text = text + s;
+                    }
+                }
+            } else if (s.match(/^\d$/)) {
+                const parts = text.split('.');
+                if (parts.length > 1 && parts[1].length >= 3) {
+
+                }
+                else if (text.length === 3 && text.indexOf('.') === -1) {
+                    text += '.' + s;
+                }
+                else if (text.length < 7) {
+                    text += s;
+                }
+            }
+            text = text.padStart(7, " ");
+            $scope.inputText = text;
+        }
+
+        $scope.freqClick = function (freq, event) {
+            if ($scope.inputText == null || $scope.inputText.trim().length == 0) {
+                $scope.inputText = freq.text;
                 return;
             }
             if ('vibrate' in navigator)
                 navigator.vibrate(50);
+            // 
             let v1 = $scope.inputText;
             if (v1 == freq.value)
                 return;
@@ -206,61 +187,7 @@ app.controller("xpRadio" + "Controller", [
                 }]
             }
             $scope.clientWs.send(JSON.stringify(req));
-        };
-
-
-        // CLR
-        $scope.clrClick = function (btn) {
-            if ('vibrate' in navigator)
-                navigator.vibrate(50);
-
-            $scope.inputText = '';
-        };
-
-        //DEL
-        $scope.delClick = function (btn) {
-            if ('vibrate' in navigator)
-                navigator.vibrate(50);
-
-            let v1 = $scope.inputText;
-            if (v1.length == 0)
-                return;
-            let v2 = v1.substring(0, v1.length - 1);
-            console.log("del click: ", v1, v2);
-            $scope.inputText = v2;
-        };
-
-        // NUM
-        $scope.numClick = function (s) {
-            if ('vibrate' in navigator)
-                navigator.vibrate(50);
-
-            let v1 = $scope.inputText;
-            s = String(s)
-            // Handle number input with auto decimal insertion
-            if (s.match(/^\d$/)) {
-                // Check if already has 3 decimal places
-                const parts = v1.split('.');
-                if (parts.length > 1 && parts[1].length >= 3) {
-                    return; // Ignore input if already has 3 decimal digits
-                }
-                // If input has exactly 3 digits and no decimal, add decimal before new digit
-                if (v1.length === 3 && v1.indexOf('.') === -1) {
-                    v1 += '.';
-                }
-                $scope.inputText = v1 + s;
-            } else if (s === '.') {
-                // Handle decimal point input
-                if (v1.indexOf('.') === -1) {
-                    if (v1.length == 0) {
-                        $scope.inputText = "0.";
-                    } else {
-                        $scope.inputText = v1 + s;
-                    }
-                }
-            }
-            console.log("num click:", v1, s, $scope.inputText);
-        };
+        }
 
         $scope.onFreqTouchStart = function (type, event) {
             event.stopPropagation();
@@ -275,12 +202,12 @@ app.controller("xpRadio" + "Controller", [
             // 
             freq = Number($scope.inputText);
             if (Number.isFinite(freq) == false || freq == 0)
-                freq = 50.000;
+                freq = 100.000;
             // 
             const parts = freq.toFixed(3).split('.');
             $scope.freqPart0 = parts[0].padStart(3, '0');
             $scope.freqPart1 = parts[1].padStart(3, '0');
-            $scope.freqInitValue = Number(type == 0 ? parts[0] : parts[1]);
+            $scope.freqInitValue = Number(type == 1 ? parts[0] : parts[1]);
 
             $scope.inputText = $scope.freqPart0 + "." + $scope.freqPart1;
         };
@@ -290,7 +217,7 @@ app.controller("xpRadio" + "Controller", [
             event.stopPropagation();
             event.preventDefault();
             // 
-            if (type == 0)
+            if (type == 1)
                 step = 1;
             else
                 step = 5;
@@ -323,7 +250,7 @@ app.controller("xpRadio" + "Controller", [
             // 
             // console.log("move: start", $scope.freqTouchStart, "distance", distance, "rate", rate);
             while (Math.abs(distance) >= threshold) {
-                
+
                 if ('vibrate' in navigator)
                     navigator.vibrate(50);
 
@@ -336,6 +263,15 @@ app.controller("xpRadio" + "Controller", [
                 // 
                 $scope.freqTouchStart += sign * threshold;
                 freq = $scope.freqInitValue + deltaFreq;
+                if (type == 2) {
+                    if (freq < 0)
+                        freq += 1000;
+                    else if (freq >= 1000)
+                        freq -= 1000;
+                    if (freq % 100 == 95)
+                        freq += deltaFreq;
+                }
+                console.log("freq: ", $scope.freqInitValue, deltaFreq, freq);
                 if (freq < 0)
                     freq = 1000 - step;
                 else if (freq >= 1000)
@@ -343,7 +279,7 @@ app.controller("xpRadio" + "Controller", [
                 // 
                 $scope.freqInitValue = freq;
                 // 
-                if (type == 0) {
+                if (type == 1) {
                     $scope.freqPart0 = freq.toFixed(0).padStart(3, '0');
                 } else {
                     $scope.freqPart1 = freq.toFixed(0).padStart(3, '0');
@@ -357,5 +293,8 @@ app.controller("xpRadio" + "Controller", [
             event.stopPropagation();
             event.preventDefault();
         };
+
+        $scope.$watch("aircraft", $scope.initPanel);
+
     },
 ]);

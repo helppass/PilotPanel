@@ -112,8 +112,14 @@ app.controller('xpController',
                 });
                 // 
                 if (key in $scope.datarefs) {
-                    value = $scope.datarefs[key];
-                    callback(key, value, value);
+                    params = [];
+                    params.push(key);
+                    params.push(value);
+                    params.push(value);
+                    params = params.concat(args)
+                    callback.apply(null, params)
+                    // value = $scope.datarefs[key];
+                    // callback(key, value, value);
                 } else {
                     // sub datarefs     
                     req = {

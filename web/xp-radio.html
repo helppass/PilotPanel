@@ -1,95 +1,56 @@
 <style>
-
+    .p-root {
+        padding: 8px;
+    }
 </style>
-<div class="p-root flex-pv">
-    <div class="sep-line"></div>
-    <!-- COM 1 -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="com1Pwd" ng-click="buttonClick(com1Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com1Freq)">
-            {{com1Freq.value}}
-        </span>
-        <btn-box btn="com1Apply" ng-click="buttonClick(com1Apply)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com1StandbyFreq)">
-            {{com1StandbyFreq.value}}
-        </span>
+<div class="p-root">
+    <div class="g-root">
+        <g-sep></g-sep>
+
+        <g-btn title="COM1"></g-btn>
+        <g-led text="com1Freq.text" ng-click="freqClick(com1Freq)"></g-led>
+        <g-btn title="◀" ng-click="buttonClick(com1Apply)"></g-btn>
+        <g-led text="com1StandbyFreq.text" ng-click="freqClick(com1StandbyFreq)"></g-led>
+        <g-sep></g-sep>
+
+        <g-btn title="COM2"></g-btn>
+        <g-led text="com2Freq.text" ng-click="freqClick(com2Freq)"></g-led>
+        <g-btn title="◀" ng-click="buttonClick(com2Apply)"></g-btn>
+        <g-led text="com2StandbyFreq.text" ng-click="freqClick(com2StandbyFreq)"></g-led>
+        <g-sep></g-sep>
+
+        <g-btn title="NAV1"></g-btn>
+        <g-led text="nav1Freq.text" ng-click="freqClick(nav1Freq)"></g-led>
+        <g-btn title="◀" ng-click="buttonClick(nav1Apply)"></g-btn>
+        <g-led text="nav1StandbyFreq.text" ng-click="freqClick(nav1StandbyFreq)"></g-led>
+        <g-sep></g-sep>
+
+        <g-btn title="NAV2"></g-btn>
+        <g-led text="nav2Freq.text" ng-click="freqClick(nav2Freq)"></g-led>
+        <g-btn title="◀" ng-click="buttonClick(nav2Apply)"></g-btn>
+        <g-led text="nav2StandbyFreq.text" ng-click="freqClick(nav2StandbyFreq)"></g-led>
+        <g-sep></g-sep>
+
+        <g-btn title="ADF1"></g-btn>
+        <g-led text="adf1Freq.text" ng-click="freqClick(adf1Freq)"></g-led>
+        <g-btn title="ADF2"></g-btn>
+        <g-led text="adf2Freq.text" ng-click="freqClick(adf2Freq)"></g-led>
+        <g-sep></g-sep>
+
+        <g-btn title="CLR" ng-click="numClick('CLR')"></g-btn>
+        <g-led text="inputText"></g-led>
+        <g-btn title="MHz" ng-on-touchstart="onFreqTouchStart(1, $event)"
+            ng-on-touchmove="onFreqTouchMove(1, $event)"></g-btn>
+        <g-btn title="kHz" ng-on-touchstart="onFreqTouchStart(2, $event)"
+            ng-on-touchmove="onFreqTouchMove(2, $event)"></g-btn>
+        <g-btn class="g-newline" title="FN 1"></g-btn>
+        <g-btn ng-repeat="c in [1,2,3]" title="{{c}}" ng-click="numClick(c)"></g-btn>
+        <g-btn class="g-newline" title="FN 2"></g-btn>
+        <g-btn ng-repeat="c in [4,5,6]" title="{{c}}" ng-click="numClick(c)"></g-btn>
+        <g-btn class="g-newline" title="FN 3"></g-btn>
+        <g-btn ng-repeat="c in [7,8,9]" title="{{c}}" ng-click="numClick(c)"></g-btn>
+        <g-btn class="g-newline" title="FN 4"></g-btn>
+        <g-btn ng-repeat="c in ['.',0,'DEL']" title="{{c}}" ng-click="numClick(c)"></g-btn>
+        <g-sep></g-sep>
     </div>
-    <div class="sep-line"></div>
-    <!-- COM 2 -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="com2Pwd" ng-click="buttonClick(com2Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com2Freq)">
-            {{com2Freq.value}}
-        </span>
-        <btn-box btn="com2Apply" ng-click="buttonClick(com2Apply)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com2StandbyFreq)">
-            {{com2StandbyFreq.value}}
-        </span>
-    </div>
-    <div class="sep-line"></div>
-    <!--NAV 1-->
-    <div class="flex-ph btn-line">
-        <btn-box btn="nav1Pwd" ng-click="buttonClick(nav1Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(nav1Freq)">
-            {{nav1Freq.value}}
-        </span>
-        <btn-box btn="nav1Apply" ng-click="buttonClick(nav1Apply)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(nav1StandbyFreq)">
-            {{nav1StandbyFreq.value}}
-        </span>
-    </div>
-    <div class="sep-line"></div>
-    <!--NAV 2-->
-    <div class="flex-ph btn-line">
-        <btn-box btn="nav2Pwd" ng-click="buttonClick(nav2Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(nav2Freq)">
-            {{nav2Freq.value}}
-        </span>
-        <btn-box btn="nav2Apply" ng-click="buttonClick(nav2Apply)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(nav2StandbyFreq)">
-            {{nav2StandbyFreq.value}}
-        </span>
-    </div>
-    <div class="sep-line"></div>
-    <!-- ADF -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="adf1Pwd" ng-click="buttonClick(adf1Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(adf1Freq)">
-            {{adf1Freq.value}}
-        </span>
-        <btn-box btn="adf2Pwd" ng-click="buttonClick(adf2Pwd)"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(adf2Freq)">
-            {{adf2Freq.value}}
-        </span>
-    </div>
-    <div class="sep-line"></div>
-    <div>
-        <div class="flex-ph btn-line">
-            <btn-box title="CLR" ng-click="clrClick()"> </btn-box>
-            <span class="btn-freq" style="width: 140px;">{{inputText}}</span>
-        </div>
-        <div class="flex-ph btn-line">
-            <btn-box title="FN 1" ng-click="fnClick(1)"></btn-box>
-            <btn-box class="btn-num" ng-repeat="n in [1,2,3]" title="{{n}}" ng-click="numClick(n)"></btn-box>
-            <btn-box title="<--- 1MHz --->" style="width: 150px;" ng-on-touchstart="onFreqTouchStart(0, $event)"
-                ng-on-touchmove="onFreqTouchMove(0, $event)"></btn-box>
-        </div>
-        <div class="flex-ph btn-line">
-            <btn-box title="FN 2" ng-click="fnClick(2)"></btn-box>
-            <btn-box class="btn-num" ng-repeat="n in [4,5,6]" title="{{n}}" ng-click="numClick(n)"></btn-box>
-            <btn-box title="<--- 5kHz --->" style="width: 150px;" ng-on-touchstart="onFreqTouchStart(1, $event)"
-                ng-on-touchmove="onFreqTouchMove(1, $event)"></btn-box>
-        </div>
-        <div class="flex-ph btn-line">
-            <btn-box title="FN 3" ng-click="fnClick(3)"></btn-box>
-            <btn-box class="btn-num" ng-repeat="n in [7,8,9]" title="{{n}}" ng-click="numClick(n)"></btn-box>
-        </div>
-        <div class="flex-ph btn-line">
-            <btn-box title="FN 4" ng-click="fnClick(4)"></btn-box>
-            <btn-box class="btn-num" title="." ng-click="numClick('.')"></btn-box>
-            <btn-box class="btn-num" title="0" ng-click="numClick(0)"></btn-box>
-            <btn-box title="DEL" ng-click="delClick()"></btn-box>
-        </div>
-    </div>
-    <div class="sep-line"></div>
 </div>

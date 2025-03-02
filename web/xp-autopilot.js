@@ -15,6 +15,7 @@ app.controller('xpAutopilot' + 'Controller', [
     '$stateParams',
     function ($scope, $rootScope, $state, $stateParams) {
         //
+
         $scope.cmdPwd = {
             key: 'sim/cockpit2/annunciators/autopilot',
             title: 'CMD',
@@ -119,9 +120,11 @@ app.controller('xpAutopilot' + 'Controller', [
         };
 
         $scope.initPanel = function (aircraft) {
+            console.log("initPanel test", aircraft);
+            // 
             if (aircraft == null)
                 return;
-            // 
+
             freqs = [
                 $scope.curValue,
                 $scope.spdValue,
@@ -142,37 +145,22 @@ app.controller('xpAutopilot' + 'Controller', [
             $scope.watchDataref($scope.vviPwd.key, $scope.onVviChanged, $scope.vviPwd);
         };
 
-        $scope.$watch("aircraft", $scope.initPanel);
-
         $scope.onFreqChanged = function (key, newValue, oldValue, freq) {
-            if (freq == null)
+            if (newValue == null)
                 return;
-            console.log("onFreqChanged changed: ", key, newValue, oldValue, freq);
-            if (newValue == null) {
-                freq.value = null;
-                return;
-            }
-            // 
-            if (freq.bits == null) {
-                freq.value = newValue;
-                return;
-            }
-            // 
             v = Number(newValue);
             v = v / Math.pow(10, freq.bits);
-            v = v.toFixed(freq.bits);
-            // 按照freq.ints整数位前面补零
-            if (freq.ints != null) {
-                v = v.toString();
-                v = v.padStart(freq.ints, '0');
-            }
+            t = v.toFixed(freq.bits);
+            t = t.padStart(7, " ");
             freq.value = v;
+            freq.text = t
+            console.log("onFreqChanged changed: ", key, newValue, oldValue, freq);
         };
-
         $scope.onCmdChanged = function (key, newValue, oldValue, btn) {
             if (btn == null)
                 return;
             btn.lightOn = newValue == 1;
+            console.log("onCmdChanged", btn, btn.lightOn)
         };
 
         $scope.onDisChanged = function (key, newValue, oldValue, btn) {
@@ -202,7 +190,6 @@ app.controller('xpAutopilot' + 'Controller', [
         $scope.onVviChanged = function (key, newValue, oldValue, btn) {
             if (btn == null)
                 return;
-            // console.log("onAltChanged changed: ", key, newValue, oldValue, btn);
             btn.lightOn = newValue == 4;
         };
 
@@ -307,6 +294,9 @@ app.controller('xpAutopilot' + 'Controller', [
             event.stopPropagation();
             event.preventDefault();
         };
+
+        $scope.$watch("aircraft", $scope.initPanel);
+        // 
     }
 ]
 );

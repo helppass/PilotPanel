@@ -8,3 +8,4 @@ build/
 *.pyo
 *.exe
 *.spec
+npminstall-debug.log

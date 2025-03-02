@@ -1,55 +1,40 @@
 <style>
-
+    .p-root {
+        padding: 8px;
+    }
 </style>
-<div class="p-root flex-pv">
-    <div class="sep-line"></div>
-    <!-- Commons -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="cmdPwd" ng-click="buttonClick(cmdPwd)"></btn-box>
+<div class="p-root">
+    <div class="g-root">
+        <g-sep></g-sep>
+        <g-btn title="CMD" has-light="true" light-on="cmdPwd.lightOn" ng-click="buttonClick(cmdPwd)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="CUR"></g-btn>
+        <g-led text="curValue.text"></g-led>
+        <g-btn title="||||" ng-on-touchstart="onFreqTouchStart(curValue, $event)"
+            ng-on-touchmove="onFreqTouchMove(curValue, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="SPD" has-light="true" light-on="spdPwd.lightOn" ng-click="buttonClick(spdPwd)"></g-btn>
+        <g-led text="spdValue.text"></g-led>
+        <g-btn title="||||" ng-on-touchstart="onFreqTouchStart(spdValue, $event)"
+            ng-on-touchmove="onFreqTouchMove(spdValue, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="HDG" has-light="true" light-on="hdgPwd.lightOn" ng-click="buttonClick(hdgPwd)"></g-btn>
+        <g-led text="hdgValue.text"></g-led>
+        <g-btn title="||||" ng-on-touchstart="onFreqTouchStart(hdgValue, $event)"
+            ng-on-touchmove="onFreqTouchMove(hdgValue, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="ALT" has-light="true" light-on="altPwd.lightOn" ng-click="buttonClick(altPwd)"></g-btn>
+        <g-led text="altValue.text"></g-led>
+        <g-btn title="||||" ng-on-touchstart="onFreqTouchStart(altValue, $event)"
+            ng-on-touchmove="onFreqTouchMove(altValue, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="V/S" has-light="true" light-on="vviPwd.lightOn" ng-click="buttonClick(vviPwd)"></g-btn>
+        <g-led text="vviValue.text"></g-led>
+        <g-btn title="||||" ng-on-touchstart="onFreqTouchStart(vviValue, $event)"
+            ng-on-touchmove="onFreqTouchMove(vviValue, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="DISCONNECT" has-light="true" light-on="disPwd.lightOn" ng-click="buttonClick(disPwd)"
+            style="grid-column-end: span 5;"></g-btn>
+        <g-sep></g-sep>
     </div>
-    <div class="sep-line"></div>
-    <!-- CUR -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="curPwd" ng-click="onlyLightClick(curPwd)"></btn-box>
-        <span class="btn-freq">{{curValue.value}}</span>
-        <btn-box title="|||||" ng-on-touchstart="onFreqTouchStart(curValue, $event)"
-            ng-on-touchmove="onFreqTouchMove(curValue, $event)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <!-- SPD -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="spdPwd" ng-click="buttonClick(spdPwd)"></btn-box>
-        <span class="btn-freq">{{spdValue.value}}</span>
-        <btn-box title="|||||" ng-on-touchstart="onFreqTouchStart(spdValue, $event)"
-            ng-on-touchmove="onFreqTouchMove(spdValue, $event)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <!-- HDG -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="hdgPwd" ng-click="buttonClick(hdgPwd)"></btn-box>
-        <span class="btn-freq">{{hdgValue.value}}</span>
-        <btn-box title="|||||" ng-on-touchstart="onFreqTouchStart(hdgValue, $event)"
-            ng-on-touchmove="onFreqTouchMove(hdgValue, $event)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <!-- ALT -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="altPwd" ng-click="buttonClick(altPwd)"></btn-box>
-        <span class="btn-freq">{{altValue.value}}</span>
-        <btn-box title="|||||" ng-on-touchstart="onFreqTouchStart(altValue, $event)"
-            ng-on-touchmove="onFreqTouchMove(altValue, $event)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <!-- V/S -->
-    <div class="flex-ph btn-line">
-        <btn-box btn="vviPwd" ng-click="buttonClick(vviPwd)"></btn-box>
-        <span class="btn-freq">{{vviValue.value}}</span>
-        <btn-box title="|||||" ng-on-touchstart="onFreqTouchStart(vviValue, $event)"
-            ng-on-touchmove="onFreqTouchMove(vviValue, $event)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <btn-box btn="disPwd" style="width: 200px;" ng-click="buttonClick(disPwd)"></btn-box>
-    </div>
-    <div class="sep-line"></div>
 </div>

@@ -113,7 +113,6 @@ dcs-btn {
 
 .p-root {
   height: 100%;
-  width: 100%;
   overflow: hidden;
   position: relative;
   color: white;
@@ -166,4 +165,94 @@ dcs-btn {
 
 .btn-num {
   font-size: 24px;
+}
+
+.g-root {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  grid-gap: 8px;
+  justify-items: stretch;
+  align-items: center;
+}
+
+g-sep,
+.g-sep {
+  grid-column-start: 1;
+  grid-column-end: span 8;
+  background-color: black;
+  height: 2px;
+  border: 1px inset #8b8b8b;
+  transform: translateX(-50px) scaleX(2);
+}
+
+.g-newline {
+  grid-column-start: 1;
+}
+
+g-btn,
+.g-btn {
+  --light-color: #00ff00;
+  height: 40px;
+  background-color: #6a6a6a;
+  box-shadow: 1px 1px 4px 2px #000000;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  border-style: outset;
+  user-select: none;
+  font-size: 13px;
+  font-weight: bold;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.g-btn-light {
+  width: 15px;
+  height: 6px;
+  background-color: #424242;
+  border: inset 1px #adadad;
+}
+
+.g-btn-light.active {
+  width: 15px;
+  height: 6px;
+  box-shadow: 0px 0px 3px 1px var(--light-color);
+  background-color: var(--light-color);
+  border: solid 1px var(--light-color);
+}
+
+g-led,
+.g-led {
+  height: 40px;
+  --text-color: #00ff00;
+
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #000000;
+
+  border-radius: 5px;
+  border: 1px inset darkgray;
+  text-shadow: 0 0 10px var(--text-color);
+
+  user-select: none;
+  overflow: hidden;
+
+  display: grid;
+  align-content: center;
+
+  grid-column-end: span 3;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+g-led > *,
+.g-led > * {
+  --s: 28px;
+  height: 30px;
+  background-image: url("images/font01.png");
+  background-size: calc(var(--s) * 8);
+  background-position: calc(2px - var(--s) * 0) calc(1px - var(--s) * 0);
+  filter: hue-rotate(0deg) saturate(100%) brightness(100%);
 }
