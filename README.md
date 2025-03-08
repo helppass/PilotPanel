@@ -19,10 +19,11 @@
 
 * 执行环境Windows
 * DCS World需要安装DCS-BIOS插件，具体安装方法可参考DCS-BIOS项目主页。
+* 手机与电脑在同一局域网内，需要能直接通过IP访问电脑。
 
 ### 安装步骤
 
-* 下载已打包的程序：链接: <https://pan.baidu.com/s/1nwXDYXzTOt8eXzxktMEN_g?pwd=vkur>
+* 下载已打包的程序：链接: <https://pan.baidu.com/s/1ulhzz3daNFtgL-QFZWPJHQ?pwd=7ep2>
 * 解压缩到后，即可执行
 * 程序默认服务端口为5600，如需变更则可以在config.ymal中修改
 
