@@ -93,4 +93,5 @@ PS：如果有Python开发环境则可执行main.py启动
 ## 更新历史
 
 * 2025-03-02 11:00 重新打包，之前的web/node_modules目录内容异常 <https://pan.baidu.com/s/1nwXDYXzTOt8eXzxktMEN_g?pwd=vkur>
-* 2023-03-03 11:00 XPlane相关面板的Flex布局改为grid布局，频率数值字体改为点整字体
+* 2025-03-03 11:00 XPlane相关面板的Flex布局改为grid布局，频率数值字体改为点整字体
+* 2025-03-08 10:00 按钮全改为g-btn组件, LED显示改为g-led组件，增加F16-UFC面板（试用）

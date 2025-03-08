@@ -16,8 +16,6 @@ app.controller("dcsJF17Ufc" + "Controller", [
     "$interval",
     function ($scope, $rootScope, $state, $stateParams, $timeout, $interval) {
 
-        console.log($scope);
-
         $scope.initPanel = function (name, aircraft) {
             if (aircraft != "JF-17")
                 return;
@@ -25,27 +23,32 @@ app.controller("dcsJF17Ufc" + "Controller", [
             aircraft = aircraft.trim();
             console.info("aircraft", ">>" + aircraft + "<<");
             //
-            $scope.watchData("display_line_1", { type: 'string', address: 0x4886, maxLength: 8 }, $scope.onDisplayChange, 1);
-            $scope.watchData("display_line_2", { type: 'string', address: 0x488e, maxLength: 8 }, $scope.onDisplayChange, 2);
-            $scope.watchData("display_line_3", { type: 'string', address: 0x4896, maxLength: 8 }, $scope.onDisplayChange, 3);
-            $scope.watchData("display_line_4", { type: 'string', address: 0x489e, maxLength: 8 }, $scope.onDisplayChange, 4);
+            $scope.watchData("display_line_1", { type: 'string', address: 0x4886, maxLength: 8 });
+            $scope.watchData("display_line_2", { type: 'string', address: 0x488e, maxLength: 8 });
+            $scope.watchData("display_line_3", { type: 'string', address: 0x4896, maxLength: 8 });
+            $scope.watchData("display_line_4", { type: 'string', address: 0x489e, maxLength: 8 });
             // 
             $scope.watchData("comm1_freq", { type: 'string', address: 0x48b6, maxLength: 7 });
             $scope.watchData("comm2_freq", { type: 'string', address: 0x48be, maxLength: 7 });
-            // 
-            $scope.watchData("light_1", { type: 'integer', address: 0x4810, mask: 0x0200, shift: 9, maxValue: 1 });
-            // 
-            console.log("xxxxx", $scope.ws);
         };
 
         $scope.watchData("aircraft", null, $scope.initPanel);
 
-        $scope.onDisplayChange = function (name, value, oldValue, idx) {
-            console.log("onDisplayChange", name, value, idx);
-            if (value == null)
+        $scope.onTouch = function (cmd, cmd1, cmd0, $event) {
+            eventType = $event.type;
+            if (eventType == "touchstart") {
+                if (cmd1 == null)
+                    return;
+                command = cmd + " " + cmd1;
+            } else if (eventType == "touchend") {
+                if (cmd0 == null)
+                    return;
+                command = cmd + " " + cmd0;
+            } else {
                 return;
-            $scope['display_chars_' + idx] = value.split("");
-        };
+            }
+            $scope.sendCommand(command);
+        }
 
     },
 ]);

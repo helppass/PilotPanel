@@ -1,0 +1,51 @@
+<style>
+    .p-root {
+        padding: 8px;
+    }
+
+    .g-led-a {
+        grid-column-end: span 8;
+        grid-template-columns: repeat(29, 1fr);
+    }
+
+    .g-led-a>* {
+        --s: 20px;
+        height: 20px;
+    }
+</style>
+<div class="p-root flex-pv">
+    <div class="g-root">
+        <g-sep></g-sep>
+        <g-led class="g-led-a g-newline" text="ded_display_1"></g-led>
+        <g-led class="g-led-a g-newline" text="ded_display_2"></g-led>
+        <g-led class="g-led-a g-newline" text="ded_display_3"></g-led>
+        <g-led class="g-led-a g-newline" text="ded_display_4"></g-led>
+        <g-led class="g-led-a g-newline" text="ded_display_5"></g-led>
+        <g-sep></g-sep>
+        <g-btn title="COM1" g-touch="onTouch('ICP_COM1_BTN', 1, 0, $event)"></g-btn>
+        <g-btn title="COM2" g-touch="onTouch('ICP_COM1_BTN', 1, 0, $event)"></g-btn>
+        <g-btn title="IFF" g-touch="onTouch('ICP_IFF_BTN', 1, 0, $event)"></g-btn>
+        <g-btn title="LIST" g-touch="onTouch('ICP_LIST_BTN', 1, 0, $event)"></g-btn>
+        <g-btn title="A-G" g-touch="onTouch('ICP_AG_MODE_BTN', 1, 0, $event)"></g-btn>
+        <g-btn title="A-G" g-touch="onTouch('ICP_AG_MODE_BTN', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn class="g-newline" title="1" title2="T-ILS" g-touch="onTouch('ICP_BTN_1', 1, 0, $event)"></g-btn>
+        <g-btn title="2" title2="ALOW" g-touch="onTouch('ICP_BTN_2', 1, 0, $event)"></g-btn>
+        <g-btn title="3" title2="" g-touch="onTouch('ICP_BTN_3', 1, 0, $event)"></g-btn>
+        <g-btn title="RCL" title2="" g-touch="onTouch('ICP_RCL_BTN', 1, 0, $event)"></g-btn>
+        <g-btn class="g-newline" title="4" title2="STPT" g-touch="onTouch('ICP_BTN_4', 1, 0, $event)"></g-btn>
+        <g-btn title="5" title2="CRUS" g-touch="onTouch('ICP_BTN_5', 1, 0, $event)"></g-btn>
+        <g-btn title="6" title2="TIME" g-touch="onTouch('ICP_BTN_6', 1, 0, $event)"></g-btn>
+        <g-btn title="ENTR" title2="" g-touch="onTouch('ICP_ENTR_BTN', 1, 0, $event)"></g-btn>
+        <g-btn class="g-newline" title="7" title2="MARK" g-touch="onTouch('ICP_BTN_7', 1, 0, $event)"></g-btn>
+        <g-btn title="8" title2="FIX" g-touch="onTouch('ICP_BTN_8', 1, 0, $event)"></g-btn>
+        <g-btn title="9" title2="A-CAL" g-touch="onTouch('ICP_BTN_9', 1, 0, $event)"></g-btn>
+        <g-btn title="0" title2="M-SEL" g-touch="onTouch('ICP_BTN_0', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn class="g-newline" title="COM1" g-touch="onTouch('ICP_COM1_BTN', 1, 0, $event)"></g-btn>
+        <g-led text="comm1_freq"></g-led>
+        <g-btn class="g-newline" title="COM2" g-touch="onTouch('ICP_COM2_BTN', 1, 0, $event)"></g-btn>
+        <g-led text="comm2_freq"></g-led>
+        <g-sep></g-sep>
+    </div>
+</div>

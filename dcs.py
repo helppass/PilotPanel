@@ -205,7 +205,7 @@ class DcsBiosClient:
                             )
                     if item.type == "integer":
                         value = self.readInteger(item.address, item.mask, item.shift)
-                        if item.value!= value:
+                        if item.value != value:
                             item.value = value
                             await self.sendUpdateNotice(item)
                             logger.info("update: {}, {}", item.name, value)

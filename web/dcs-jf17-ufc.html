@@ -1,80 +1,62 @@
 <style>
-    .display-line {
-        width: 144px;
-        /* font-weight: normal; */
-        font-size: 19px;
-        display: grid;
-        grid-template-columns: repeat(15, 18px);
-        align-content: center;
+    .p-root {
+        padding: 8px;
+    }
+
+    g-led {
+        grid-column-end: span 4;
+        grid-template-columns: repeat(8, 1fr);
     }
 </style>
 <div class="p-root flex-pv">
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="▶" cmd="UFCP_BTN_L1" down="1" up="0"></dcs-btn>
-        <div class="btn-freq display-line">
-            <span ng-repeat="c in display_chars_1 track by $index">{{c}}</span>
-        </div>
-        <dcs-btn title="◀" cmd="UFCP_BTN_R1" down="1" up="0"></dcs-btn>
+    <div class="g-root">
+        <g-sep></g-sep>
+        <g-btn title="▶" g-touch="onTouch('UFCP_BTN_L1', 1, 0, $event)"></g-btn>
+        <g-led text="display_line_1"></g-led>
+        <g-btn title="◀" g-touch="onTouch('UFCP_BTN_R1', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="▶" g-touch="onTouch('UFCP_BTN_L2', 1, 0, $event)"></g-btn>
+        <g-led text="display_line_2"></g-led>
+        <g-btn title="◀" g-touch="onTouch('UFCP_BTN_R2', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="▶" g-touch="onTouch('UFCP_BTN_L3', 1, 0, $event)"></g-btn>
+        <g-led text="display_line_3"></g-led>
+        <g-btn title="◀" g-touch="onTouch('UFCP_BTN_R3', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+        <g-btn title="▶" g-touch="onTouch('UFCP_BTN_L4', 1, 0, $event)"></g-btn>
+        <g-led text="display_line_4"></g-led>
+        <g-btn title="◀" g-touch="onTouch('UFCP_BTN_R4', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+
+        <g-btn class="g-newline" title="1" title2="PFL" g-touch="onTouch('UFCP_BTN_1', 1, 0, $event)"></g-btn>
+        <g-btn title="2" title2="VRC" g-touch="onTouch('UFCP_BTN_2', 1, 0, $event)"></g-btn>
+        <g-btn title="3" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_3', 1, 0, $event)"></g-btn>
+        <g-btn title="OAP" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_OAP', 1, 0, $event)"></g-btn>
+        <g-btn title="MRK" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_MRK', 1, 0, $event)"></g-btn>
+
+        <g-btn class="g-newline" title="4" title2="DST" g-touch="onTouch('UFCP_BTN_4', 1, 0, $event)"></g-btn>
+        <g-btn title="5" title2="TOT" g-touch="onTouch('UFCP_BTN_5', 1, 0, $event)"></g-btn>
+        <g-btn title="6" title2="TOD" g-touch="onTouch('UFCP_BTN_6', 1, 0, $event)"></g-btn>
+        <g-btn title="P.U" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_PU', 1, 0, $event)"></g-btn>
+        <g-btn title="HNS" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_HNS', 1, 0, $event)"></g-btn>
+
+        <g-btn class="g-newline" title="7" title2="FUL" g-touch="onTouch('UFCP_BTN_7', 1, 0, $event)"></g-btn>
+        <g-btn title="8" title2="IFF" g-touch="onTouch('UFCP_BTN_8', 1, 0, $event)"></g-btn>
+        <g-btn title="9" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_9', 1, 0, $event)"></g-btn>
+        <g-btn title="A/P" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_AP', 1, 0, $event)"></g-btn>
+        <g-btn title="FPM" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_FPM', 1, 0, $event)"></g-btn>
+
+        <g-btn class="g-newline" title="RTN" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_RTN', 1, 0, $event)"></g-btn>
+        <g-btn title="0" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_0', 1, 0, $event)"></g-btn>
+        <g-btn title="&nbsp;" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_NA1', 1, 0, $event)"></g-btn>
+        <g-btn title="&nbsp;" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_NA2', 1, 0, $event)"></g-btn>
+        <g-btn title="&nbsp;" title2="&nbsp;" g-touch="onTouch('UFCP_BTN_NA3', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+
+        <g-btn class="g-newline" title="COM1"></g-btn>
+        <g-led text="comm1_freq"></g-led>
+        <g-btn class="g-newline" title="COM2"></g-btn>
+        <g-led text="comm2_freq"></g-led>
+        <g-sep></g-sep>
     </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="▶" cmd="UFCP_BTN_L2" down="1" up="0"></dcs-btn>
-        <div class="btn-freq display-line">
-            <span ng-repeat="c in display_chars_2 track by $index">{{c}}</span>
-        </div>
-        <dcs-btn title="◀" cmd="UFCP_BTN_R2" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="▶" cmd="UFCP_BTN_L3" down="1" up="0"></dcs-btn>
-        <div class="btn-freq display-line">
-            <span ng-repeat="c in display_chars_3 track by $index">{{c}}</span>
-        </div>
-        <dcs-btn title="◀" cmd="UFCP_BTN_R3" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="▶" cmd="UFCP_BTN_L4" down="1" up="0"></dcs-btn>
-        <div class="btn-freq display-line">
-            <span ng-repeat="c in display_chars_4 track by $index">{{c}}</span>
-        </div>
-        <dcs-btn title="◀" cmd="UFCP_BTN_R4" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="1" title2="PFL" cmd="UFCP_BTN_1" down="1" up="0"></dcs-btn>
-        <dcs-btn title="2" title2="VRC" cmd="UFCP_BTN_2" down="1" up="0"></dcs-btn>
-        <dcs-btn title="3" title2="   " cmd="UFCP_BTN_3" down="1" up="0"></dcs-btn>
-        <dcs-btn title="OAP" title2="   " cmd="UFCP_BTN_OAP" down="1" up="0"></dcs-btn>
-        <dcs-btn title="MRK" title2="   " cmd="UFCP_BTN_MRK" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="4" title2="DST" cmd="UFCP_BTN_4" down="1" up="0"></dcs-btn>
-        <dcs-btn title="5" title2="TOT" cmd="UFCP_BTN_5" down="1" up="0"></dcs-btn>
-        <dcs-btn title="6" title2="TOD" cmd="UFCP_BTN_6" down="1" up="0"></dcs-btn>
-        <dcs-btn title="P.U" title2="   " cmd="UFCP_BTN_PU" down="1" up="0"></dcs-btn>
-        <dcs-btn title="HNS" title2="   " cmd="UFCP_BTN_HNS" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="7" title2="FUL" cmd="UFCP_BTN_7" down="1" up="0"></dcs-btn>
-        <dcs-btn title="8" title2="IFF" cmd="UFCP_BTN_8" down="1" up="0"></dcs-btn>
-        <dcs-btn title="9" title2="   " cmd="UFCP_BTN_9" down="1" up="0"></dcs-btn>
-        <dcs-btn title="A/P" title2="   " cmd="UFCP_BTN_AP" down="1" up="0"></dcs-btn>
-        <dcs-btn title="FPM" title2="   " cmd="UFCP_BTN_FPM" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="RTN" title2="" cmd="UFCP_BTN_RTN" down="1" up="0"></dcs-btn>
-        <dcs-btn title="0" title2=" " cmd="UFCP_BTN_0" down="1" up="0"></dcs-btn>
-        <dcs-btn title=" " title2=" " cmd="UFCP_BTN_NA1" down="1" up="0"></dcs-btn>
-        <dcs-btn title=" " title2=" " cmd="UFCP_BTN_NA2" down="1" up="0"></dcs-btn>
-        <dcs-btn title=" " title2=" " cmd="UFCP_BTN_NA3" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="COM1"></dcs-btn>
-        <div class="btn-freq display-line">{{comm1_freq}}</div>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="COM2"></dcs-btn>
-        <div class="btn-freq display-line">{{comm2_freq}}</div>
-    </div>
-    <div class="sep-line"></div>
 </div>

@@ -1,45 +1,96 @@
 <style>
     .p-root {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
+        padding: 8px;
+    }
+
+    .g-led-a {
+        grid-column-end: span 4;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .g-led-a>* {
+        --s: 23px;
+        height: 25px;
+    }
+
+    .g-led-b {
+        grid-column-end: span 2;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .g-led-b>* {
+        --s: 23px;
+        height: 25px;
+    }
+
+    .g-led-c {
+        grid-column-end: span 1;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .m2 {
+        grid-column-start: 2;
+        transform: translateX(-50%);
+    }
+
+    .m3 {
+        transform: translateX(-50%);
     }
 </style>
 <div class="p-root flex-pv">
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <btn-box btn="btnNum1" ng-on-touchstart="onClickDown(btnNum1, 1, $event)"
-            ng-on-touchend="onClickDown(btnNum1, 0, $event)"></btn-box>
-        <btn-box btn="btnNum2" ng-on-touchstart="onClickDown(btnNum2, 1, $event)"
-            ng-on-touchend="onClickDown(btnNum2, 0, $event)"></btn-box>
-        <btn-box btn="btnNum3" ng-on-touchstart="onClickDown(btnNum3, 1, $event)"
-            ng-on-touchend="onClickDown(btnNum3, 0, $event)"></btn-box>
-        <btn-box btn="btnNum4" ng-on-touchstart="onClickDown(btnNum4, 1, $event)"
-            ng-on-touchend="onClickDown(btnNum4, 0, $event)"></btn-box>
+    <div class="g-root">
+        <g-sep></g-sep>
+        <g-led class="g-led-a g-newline" text="scratchpad_text"></g-led>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS1', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_1"></g-led>
+
+        <g-btn class="m2" title="1" g-touch="onTouch('UFC_1', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="2" title2="N" g-touch="onTouch('UFC_2', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="3" g-touch="onTouch('UFC_3', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS2', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_2"></g-led>
+
+        <g-btn class="m2" title="4" title2="W" g-touch="onTouch('UFC_4', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="5" g-touch="onTouch('UFC_5', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="6" title2="E" g-touch="onTouch('UFC_6', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS3', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_3"></g-led>
+
+        <g-btn class="m2" title="7" g-touch="onTouch('UFC_7', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="8" title2="S" g-touch="onTouch('UFC_8', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="9" g-touch="onTouch('UFC_9', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS4', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_4"></g-led>
+
+
+        <g-btn class="m2" title="CLR" g-touch="onTouch('UFC_CLR', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="0" title2="-" g-touch="onTouch('UFC_0', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="ENT" g-touch="onTouch('UFC_ENT', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS5', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_5"></g-led>
+
+        <g-sep></g-sep>
+        <g-btn title="A/P" g-touch="onTouch('UFC_AP', 1, 0, $event)"></g-btn>
+        <g-btn title="IFF" g-touch="onTouch('UFC_IFF', 1, 0, $event)"></g-btn>
+        <g-btn title="TCN" g-touch="onTouch('UFC_TCN', 1, 0, $event)"></g-btn>
+        <g-btn title="ILS" g-touch="onTouch('UFC_ILS', 1, 0, $event)"></g-btn>
+        <g-btn title="D/L" g-touch="onTouch('UFC_DL', 1, 0, $event)"></g-btn>
+        <g-btn title="BCN" g-touch="onTouch('UFC_BCN', 1, 0, $event)"></g-btn>
+        <g-btn title="OFF" title2="ON" g-touch="onTouch('UFC_ONOFF', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+
+        <g-btn class="g-newline" title="COM1" g-touch="onTouch('UFC_COMM1_PULL', '1', '0', $event)"></g-btn>
+        <g-led class="g-led-c" text="comm_1_display"></g-led>
+        <g-btn title="-" g-touch="onTouch('UFC_COMM1_CHANNEL_SELECT', 'DEC', null, $event)"></g-btn>
+        <g-btn title="+" g-touch="onTouch('UFC_COMM1_CHANNEL_SELECT', 'INC', null, $event)"></g-btn>
+        <g-led text="comm1_freq"></g-led>
+
+        <g-btn class="g-newline" title="COM2" g-touch="onTouch('UFC_COMM2_PULL', '1', '0', $event)"></g-btn>
+        <g-led class="g-led-c" text="comm_2_display"></g-led>
+        <g-btn title="-" g-touch="onTouch('UFC_COMM2_CHANNEL_SELECT', 'DEC', null, $event)"></g-btn>
+        <g-btn title="+" g-touch="onTouch('UFC_COMM2_CHANNEL_SELECT', 'INC', null, $event)"></g-btn>
+        <g-led text="comm2_freq"></g-led>
+
+        <g-sep></g-sep>
     </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <btn-box title="F 1"></btn-box>
-        <btn-box title="F 2"></btn-box>
-        <btn-box title="F 3"></btn-box>
-        <btn-box title="F 4"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <btn-box btn="com1Pwd"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com1Freq)">
-            {{com1Freq.value}}
-        </span>
-        <btn-box title="F 4"></btn-box>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <btn-box btn="com2Pwd"></btn-box>
-        <span class="btn-freq" ng-click="freqClick(com1Freq)">
-            {{com2Freq.value}}
-        </span>
-        <btn-box title="F 4"></btn-box>
-    </div>
-    {{aircraft}}
-    <div class="sep-line"></div>
 </div>

@@ -1,31 +1,4 @@
 
-app.directive('btnBox', function () {
-    return {
-        scope: {
-            title: "@title",
-            btn: "=btn"
-        },
-        restrict: 'E',
-        // transclude: true,
-        controller: 'btnBox' + 'Controller',
-        templateUrl: 'btn-box.html',
-        link: function (scope, element, attrs, controllers) {
-            console.log("btn-box link", scope.btn, attrs.title);
-            if (scope.btn != null) {
-                scope.title = scope.btn.title;
-            }
-        }
-    };
-});
-
-app.controller('btnBox' + 'Controller',
-    ['$scope', '$rootScope', '$state', '$stateParams', '$element', '$attrs',
-        function ($scope, $rootScope, $state, $stateParams, $element, $attrs) {
-
-        }
-    ]
-);
-
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state("panels.xp", {
         name: 'xp',

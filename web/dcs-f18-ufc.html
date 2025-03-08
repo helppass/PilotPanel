@@ -1,116 +1,96 @@
 <style>
     .p-root {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
+        padding: 8px;
     }
 
-    .btn-freq {
-        white-space: nowrap;
-        text-align: left;
-        /* font-family: ui-monospace; */
-        font-size: 20px;
+    .g-led-a {
+        grid-column-end: span 4;
+        grid-template-columns: repeat(12, 1fr);
     }
 
-    .option-line {
-        width: 130px;
+    .g-led-a>* {
+        --s: 23px;
+        height: 25px;
     }
 
-    .option-m {
-        width: 20px;
+    .g-led-b {
+        grid-column-end: span 2;
+        grid-template-columns: repeat(5, 1fr);
     }
 
-    .scratchpad-line {
-        width: 145px;
-        font-weight: normal;
-        font-size: 18px;
-        display: grid;
-        grid-template-columns: repeat(15, 11px);
-        align-content: center;
+    .g-led-b>* {
+        --s: 23px;
+        height: 25px;
     }
 
-    .comm-chn {
-        width: 40px;
-        justify-content: center;
-        align-items: center;
+    .g-led-c {
+        grid-column-end: span 1;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .m2 {
+        grid-column-start: 2;
+        transform: translateX(-50%);
+    }
+
+    .m3 {
+        transform: translateX(-50%);
     }
 </style>
 <div class="p-root flex-pv">
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <div class="btn-freq flex-ph scratchpad-line">
-            <span ng-repeat="c in scratchpad_text track by $index">{{c}}</span>
-        </div>
-        <dcs-btn title="( )" cmd="UFC_OS1" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph option-line">
-            <span class="option-m">{{option_cueing_1}}</span>
-            <span class="option-t">{{option_display_1}}</span>
-        </div>
+    <div class="g-root">
+        <g-sep></g-sep>
+        <g-led class="g-led-a g-newline" text="scratchpad_text"></g-led>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS1', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_1"></g-led>
+
+        <g-btn class="m2" title="1" g-touch="onTouch('UFC_1', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="2" title2="N" g-touch="onTouch('UFC_2', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="3" g-touch="onTouch('UFC_3', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS2', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_2"></g-led>
+
+        <g-btn class="m2" title="4" title2="W" g-touch="onTouch('UFC_4', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="5" g-touch="onTouch('UFC_5', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="6" title2="E" g-touch="onTouch('UFC_6', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS3', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_3"></g-led>
+
+        <g-btn class="m2" title="7" g-touch="onTouch('UFC_7', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="8" title2="S" g-touch="onTouch('UFC_8', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="9" g-touch="onTouch('UFC_9', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS4', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_4"></g-led>
+
+
+        <g-btn class="m2" title="CLR" g-touch="onTouch('UFC_CLR', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="0" title2="-" g-touch="onTouch('UFC_0', 1, 0, $event)"></g-btn>
+        <g-btn class="m3" title="ENT" g-touch="onTouch('UFC_ENT', 1, 0, $event)"></g-btn>
+        <g-btn title="▶" g-touch="onTouch('UFC_OS5', 1, 0, $event)"></g-btn>
+        <g-led class="g-led-b" text="option_5"></g-led>
+
+        <g-sep></g-sep>
+        <g-btn title="A/P" g-touch="onTouch('UFC_AP', 1, 0, $event)"></g-btn>
+        <g-btn title="IFF" g-touch="onTouch('UFC_IFF', 1, 0, $event)"></g-btn>
+        <g-btn title="TCN" g-touch="onTouch('UFC_TCN', 1, 0, $event)"></g-btn>
+        <g-btn title="ILS" g-touch="onTouch('UFC_ILS', 1, 0, $event)"></g-btn>
+        <g-btn title="D/L" g-touch="onTouch('UFC_DL', 1, 0, $event)"></g-btn>
+        <g-btn title="BCN" g-touch="onTouch('UFC_BCN', 1, 0, $event)"></g-btn>
+        <g-btn title="OFF" title2="ON" g-touch="onTouch('UFC_ONOFF', 1, 0, $event)"></g-btn>
+        <g-sep></g-sep>
+
+        <g-btn class="g-newline" title="COM1" g-touch="onTouch('UFC_COMM1_PULL', '1', '0', $event)"></g-btn>
+        <g-led class="g-led-c" text="comm_1_display"></g-led>
+        <g-btn title="-" g-touch="onTouch('UFC_COMM1_CHANNEL_SELECT', 'DEC', null, $event)"></g-btn>
+        <g-btn title="+" g-touch="onTouch('UFC_COMM1_CHANNEL_SELECT', 'INC', null, $event)"></g-btn>
+        <g-led text="comm1_freq"></g-led>
+
+        <g-btn class="g-newline" title="COM2" g-touch="onTouch('UFC_COMM2_PULL', '1', '0', $event)"></g-btn>
+        <g-led class="g-led-c" text="comm_2_display"></g-led>
+        <g-btn title="-" g-touch="onTouch('UFC_COMM2_CHANNEL_SELECT', 'DEC', null, $event)"></g-btn>
+        <g-btn title="+" g-touch="onTouch('UFC_COMM2_CHANNEL_SELECT', 'INC', null, $event)"></g-btn>
+        <g-led text="comm2_freq"></g-led>
+
+        <g-sep></g-sep>
     </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="1" cmd="UFC_1" down="1" up="0"></dcs-btn>
-        <dcs-btn title="2" cmd="UFC_2" title2="N" down="1" up="0"></dcs-btn>
-        <dcs-btn title="3" cmd="UFC_3" down="1" up="0"></dcs-btn>
-        <dcs-btn title="( )" cmd="UFC_OS2" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph option-line">
-            <span class="option-m">{{option_cueing_2}}</span>
-            <span class="option-t">{{option_display_2}}</span>
-        </div>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="4" cmd="UFC_4" title2="W" down="1" up="0"></dcs-btn>
-        <dcs-btn title="5" cmd="UFC_5" down="1" up="0"></dcs-btn>
-        <dcs-btn title="6" cmd="UFC_6" title2="E" down="1" up="0"></dcs-btn>
-        <dcs-btn title="( )" cmd="UFC_OS3" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph option-line">
-            <span class="option-m">{{option_cueing_3}}</span>
-            <span class="option-t">{{option_display_3}}</span>
-        </div>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="7" cmd="UFC_7" down="1" up="0"></dcs-btn>
-        <dcs-btn title="8" title2="S" cmd="UFC_8" down="1" up="0"></dcs-btn>
-        <dcs-btn title="9" cmd="UFC_9" down="1" up="0"></dcs-btn>
-        <dcs-btn title="( )" cmd="UFC_OS4" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph option-line">
-            <span class="option-m">{{option_cueing_4}}</span>
-            <span class="option-t">{{option_display_4}}</span>
-        </div>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="CLR" cmd="UFC_CLR" down="1" up="0"></dcs-btn>
-        <dcs-btn title="0" title2="-" cmd="UFC_0" down="1" up="0"></dcs-btn>
-        <dcs-btn title="ENT" cmd="UFC_ENT" down="1" up="0"></dcs-btn>
-        <dcs-btn title="( )" cmd="UFC_OS5" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph option-line">
-            <span class="option-m">{{option_cueing_5}}</span>
-            <span class="option-t">{{option_display_5}}</span>
-        </div>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="A/P" cmd="UFC_AP" down="1" up="0"></dcs-btn>
-        <dcs-btn title="IFF" cmd="UFC_IFF" down="1" up="0"></dcs-btn>
-        <dcs-btn title="TCN" cmd="UFC_TCN" down="1" up="0"></dcs-btn>
-        <dcs-btn title="ILS" cmd="UFC_ILS" down="1" up="0"></dcs-btn>
-        <dcs-btn title="D/L" cmd="UFC_DL" down="1" up="0"></dcs-btn>
-        <dcs-btn title="BCN" cmd="UFC_BCN" down="1" up="0"></dcs-btn>
-        <dcs-btn title="OFF" title2="ON" cmd="UFC_ONOFF" down="1" up="0"></dcs-btn>
-    </div>
-    <div class="sep-line"></div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="COM1" cmd="UFC_COMM1_PULL" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph comm-chn">{{comm_1_display}}</div>
-        <dcs-btn title="-" cmd="UFC_COMM1_CHANNEL_SELECT" down="DEC"></dcs-btn>
-        <dcs-btn title="+" cmd="UFC_COMM1_CHANNEL_SELECT" down="INC"></dcs-btn>
-        <div class="btn-freq display-line">{{comm1_freq}}</div>
-    </div>
-    <div class="flex-ph btn-line">
-        <dcs-btn title="COM2" cmd="UFC_COMM2_PULL" down="1" up="0"></dcs-btn>
-        <div class="btn-freq flex-ph comm-chn">{{comm_2_display}}</div>
-        <dcs-btn title="-" cmd="UFC_COMM2_CHANNEL_SELECT" down="DEC"></dcs-btn>
-        <dcs-btn title="+" cmd="UFC_COMM2_CHANNEL_SELECT" down="INC"></dcs-btn>
-        <div class="btn-freq display-line">{{comm2_freq}}</div>
-    </div>
-    <div class="sep-line"></div>
 </div>

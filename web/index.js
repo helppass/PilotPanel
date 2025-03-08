@@ -13,8 +13,7 @@ app.directive('gBtn', function () {
         controller: 'gBtn' + 'Controller',
         templateUrl: 'g-btn.html',
         link: function (scope, element, attrs, controllers) {
-            // element.on('touchstart', (e) => { e.preventDefault(); e.stopPropagation(); });
-            // element.on('touchend', (e) => { e.preventDefault(); e.stopPropagation(); });
+
         }
     };
 });
@@ -22,13 +21,29 @@ app.directive('gBtn', function () {
 app.controller('gBtn' + 'Controller',
     ['$scope', '$rootScope', '$state', '$stateParams', '$element', '$attrs',
         function ($scope, $rootScope, $state, $stateParams, $element, $attrs) {
-            // $scope.lightOn2 = function () {
-                // console.log($scope.lightOn);
-                // return $scope.lightOn;
-            // }
         }
     ]
 );
+
+app.directive('gTouch', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+
+            function onTouch(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if ('vibrate' in navigator)
+                    navigator.vibrate(50);
+                scope.$apply(function () {
+                    scope.$eval(attrs.gTouch, { $event: event });
+                });
+            }
+            element.on('touchstart', (event) => onTouch(event));
+            element.on('touchend', (event) => onTouch(event));
+        }
+    };
+});
 
 app.directive('gLed', function () {
     return {
@@ -60,7 +75,7 @@ app.controller('gLed' + 'Controller',
             $scope.getCharStyle = function (c) {
                 // background-position: calc(2px - var(--s)* 4) calc(1px - var(--s)* 0);
                 let style = {};
-                const cs = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*+-\\/()[]{}<>=?^!#%^&°.:,|_'\"";
+                const cs = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*+-\\/()[]{}<>=?^!#%^&°.:,~_'\"";
                 let idx = cs.indexOf(c);
                 let x = 0;
                 let y = 0;
@@ -138,6 +153,11 @@ app.controller('panelsController',
                     title: 'DCS-JF17-UFC',
                     enabled: 1
                 },
+                {
+                    name: 'panels.dcs.dcsF16Ufc',
+                    title: 'DCS-F16-UFC',
+                    enabled: 1
+                },
                 // {
                 //     name: 'panels.indicator',
                 //     title: 'Xplane12-Indicator',
@@ -148,9 +168,14 @@ app.controller('panelsController',
                 //     title: 'Xplane12-Datas',
                 //     enabled: 1
                 // },
+                // {
+                //     name: 'panels.xp.test',
+                //     title: 'Xplane12-Test',
+                //     enabled: 1
+                // },
                 {
-                    name: 'panels.xp.test',
-                    title: 'Xplane12-Test',
+                    name: 'panels.dcs.test',
+                    title: 'DCS-Test',
                     enabled: 1
                 },
             ]

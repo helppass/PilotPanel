@@ -55,62 +55,6 @@ ui-view {
   width: 100%;
 }
 
-btn-box,
-xp-btn,
-dcs-btn {
-  --light-color: #00ff00;
-  background-color: #6a6a6a;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 40px;
-  width: 40px;
-  text-align: center;
-
-  font-size: 13px;
-  font-weight: bolder;
-
-  box-shadow: 1px 1px 4px 2px #000000;
-  border-radius: 5px;
-  border: 1px solid darkgray;
-  border-style: outset;
-
-  user-select: none;
-}
-
-.btn-box-upper {
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  height: 20px;
-}
-
-.btn-box-light {
-  flex: none;
-  width: 17px;
-  height: 8px;
-  background-color: #424242;
-  border: inset 1px #adadad;
-}
-
-.btn-box-light.active {
-  width: 15px;
-  height: 5px;
-  box-shadow: 0px 0px 3px 1px var(--light-color);
-  background-color: var(--light-color);
-  border: none;
-}
-
-.btn-box-title {
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
 .p-root {
   height: 100%;
   overflow: hidden;
@@ -221,6 +165,16 @@ g-btn,
   box-shadow: 0px 0px 3px 1px var(--light-color);
   background-color: var(--light-color);
   border: solid 1px var(--light-color);
+}
+
+.g-btn-title {
+  color: white;
+  white-space: nowrap;
+}
+
+.g-btn-title2 {
+  font-size: 80%;
+  white-space: nowrap;
 }
 
 g-led,
