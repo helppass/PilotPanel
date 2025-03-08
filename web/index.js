@@ -75,7 +75,7 @@ app.controller('gLed' + 'Controller',
             $scope.getCharStyle = function (c) {
                 // background-position: calc(2px - var(--s)* 4) calc(1px - var(--s)* 0);
                 let style = {};
-                const cs = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*+-\\/()[]{}<>=?^!#%^&°.:,~_'\"";
+                const cs = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*+-/\\()[]{}<>=?^!#%^&°.:,~_'\"";
                 let idx = cs.indexOf(c);
                 let x = 0;
                 let y = 0;

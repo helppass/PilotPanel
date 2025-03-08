@@ -23,11 +23,11 @@ app.controller("dcsF16Ufc" + "Controller", [
             aircraft = aircraft.trim();
             console.info("aircraft", ">>" + aircraft + "<<");
             //
-            $scope.watchData("ded_display_1", { type: 'string', address: 0x450a, maxLength: 29 });
-            $scope.watchData("ded_display_2", { type: 'string', address: 0x450a, maxLength: 29 });
-            $scope.watchData("ded_display_3", { type: 'string', address: 0x450a, maxLength: 29 });
-            $scope.watchData("ded_display_4", { type: 'string', address: 0x450a, maxLength: 29 });
-            $scope.watchData("ded_display_5", { type: 'string', address: 0x450a, maxLength: 29 });
+            $scope.watchData("ded_display_1", { type: 'string', address: 0x450a, maxLength: 29 }, $scope.displayChange);
+            $scope.watchData("ded_display_2", { type: 'string', address: 0x450a, maxLength: 29 }, $scope.displayChange);
+            $scope.watchData("ded_display_3", { type: 'string', address: 0x450a, maxLength: 29 }, $scope.displayChange);
+            $scope.watchData("ded_display_4", { type: 'string', address: 0x450a, maxLength: 29 }, $scope.displayChange);
+            $scope.watchData("ded_display_5", { type: 'string', address: 0x450a, maxLength: 29 }, $scope.displayChange);
 
             $scope.watchData("comm1_freq", { type: 'string', address: 0x45c8, maxLength: 7 });
             $scope.watchData("comm2_freq", { type: 'string', address: 0x45d0, maxLength: 7 });
@@ -51,9 +51,22 @@ app.controller("dcsF16Ufc" + "Controller", [
             $scope.sendCommand(command);
         }
 
-        $scope['ded_display_1'] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $scope.displayChange = function () {
+            let text = "";
+            text += $scope['ded_display_1'].padEnd(29, " ");
+            text += $scope['ded_display_2'].padEnd(29, " ");
+            text += $scope['ded_display_3'].padEnd(29, " ");
+            text += $scope['ded_display_4'].padEnd(29, " ");
+            text += $scope['ded_display_5'].padEnd(29, " ");
+            $scope['ded_display_a'] = text;
+        }
+
+        $scope['ded_display_1'] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ012";
         $scope['ded_display_2'] = "0123456789";
         $scope['ded_display_3'] = "CONNECTING TO SERVER......";
         $scope['ded_display_4'] = "WAITING FOR NOTICE........";
+        $scope['ded_display_5'] = "F-16";
+
+        $scope.displayChange();
     },
 ]);

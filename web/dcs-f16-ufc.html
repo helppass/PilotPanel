@@ -6,6 +6,10 @@
     .g-led-a {
         grid-column-end: span 8;
         grid-template-columns: repeat(29, 1fr);
+        height: unset;
+        grid-template-rows: repeat(5, 1fr);
+        grid-gap: 5px 0px;
+        padding: 2px;
     }
 
     .g-led-a>* {
@@ -16,11 +20,7 @@
 <div class="p-root flex-pv">
     <div class="g-root">
         <g-sep></g-sep>
-        <g-led class="g-led-a g-newline" text="ded_display_1"></g-led>
-        <g-led class="g-led-a g-newline" text="ded_display_2"></g-led>
-        <g-led class="g-led-a g-newline" text="ded_display_3"></g-led>
-        <g-led class="g-led-a g-newline" text="ded_display_4"></g-led>
-        <g-led class="g-led-a g-newline" text="ded_display_5"></g-led>
+        <g-led class="g-led-a g-newline" text="ded_display_a"></g-led>
         <g-sep></g-sep>
         <g-btn title="COM1" g-touch="onTouch('ICP_COM1_BTN', 1, 0, $event)"></g-btn>
         <g-btn title="COM2" g-touch="onTouch('ICP_COM1_BTN', 1, 0, $event)"></g-btn>
