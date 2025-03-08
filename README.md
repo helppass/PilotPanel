@@ -5,6 +5,9 @@
 此项目为了帮助X-Plane 12和DCS World玩家通过手机操作飞机内相关设备。
 同时也为了鼓励玩家自己动手开发、制作自己“趁手的兵器”。
 
+* gitee:  <https://gitee.com/helppass/pilot-panel.git>
+* github: <https://github.com/helppass/PilotPanel.git>
+
 ### X-Plane 12
 
 目前仅支持X-Plane 12.1.4及以上版本，因为使用到了12.1.4的Web API接口增加了输入指令“Command”的功能。在此版本之前Web API接口只能获取数据而不能发起交互，需要通过虚拟游戏设备发起，而游戏内外设置按键设置等操作太繁琐所以改为12.1.4。
@@ -23,7 +26,7 @@
 
 ### 安装步骤
 
-* 下载已打包的程序：链接: <https://pan.baidu.com/s/1ulhzz3daNFtgL-QFZWPJHQ?pwd=7ep2>
+* 下载已打包的程序: <https://pan.baidu.com/s/1ulhzz3daNFtgL-QFZWPJHQ?pwd=7ep2>
 * 解压缩到后，即可执行
 * 程序默认服务端口为5600，如需变更则可以在config.ymal中修改
 
@@ -73,6 +76,11 @@ PS：如果有Python开发环境则可执行main.py启动
 #### DCS JF-17 UFC
 
 ![输入图片说明](resource/dcs-jf17.jpg)
+
+#### DCS F-16 UFC
+
+本人没有购买F16，暂时按照视频里的样子简单制作了一个，有兴趣的可以自己修改一下。
+![输入图片说明](resource/dcs-f16.jpg)
 
 ## 文档
 
